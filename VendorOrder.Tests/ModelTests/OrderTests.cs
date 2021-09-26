@@ -50,5 +50,13 @@ namespace VendorOrder.Tests
 
       Assert.AreEqual(updatedDescription, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      List<Order> newList = new List<Order> {};
+      List<Order> result = Order.GetAll();
+      Assert.AreEqual(newList, result);
+    }
   }
 }
