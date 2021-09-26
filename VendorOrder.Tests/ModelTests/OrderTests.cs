@@ -12,7 +12,7 @@ namespace VendorOrder.Tests
     {
       Order.ClearAll();
     }
-    
+
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -62,6 +62,41 @@ namespace VendorOrder.Tests
       List<Order> newList = new List<Order> {};
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnOrders_OrderList()
+    {
+      string title = "A Title";
+      string description = "This is a test";
+      string date = "May 1st 2021";
+      string price = "23";
+      
+      string title02 = "A Title";
+      string description02 = "This is a test";
+      string date02 = "May 1st 2021";
+      string price02 = "23";
+
+      Order newOrder01 = new Order(title, description, price, date);
+      Order newOrder02 = new Order(title02, description02, price02, date02);
+      List<Order> newList = new List<Order> {newOrder01, newOrder02};
+      List<Order> result = Order.GetAll();
+
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturn_Int()
+    {
+      string title = "A Title";
+      string description = "This is a test";
+      string date = "May 1st 2021";
+      string price = "23";
+
+      Order newOrder = new Order(title, description, price, date);
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
+
     }
   }
 }
