@@ -7,27 +7,27 @@ namespace VendorOrder.Controllers
 {
   public class VendorController : Controller
   {
-    [HttpGet("/vendor")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
 
-    [HttpGet("/vendor/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/vendor")]
+    [HttpPost("/vendors")]
     public ActionResult Create(string vendorName, string vendorDescription)
     {
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendor/{id}")]
+    [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -38,16 +38,16 @@ namespace VendorOrder.Controllers
       return View(model);
     }
 
-    [HttpPost("/vendor/{vendorId}/order")]
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(string title, string description, string price, string date, int vendorId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor chosenVendor = Vendor.Find(vendorId);
+      Vendor selectedVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(title, description, price, date);
-      chosenVendor.AddOrder(newOrder);
-      List<Order> vendorsOrders = chosenVendor.Orders;
+      selectedVendor.AddOrder(newOrder);
+      List<Order> vendorsOrders = selectedVendor.Orders;
       model.Add("orders", vendorsOrders);
-      model.Add("vendors", chosenVendor);
+      model.Add("vendors", selectedVendor);
       return View("Show", model);
     }
   }
