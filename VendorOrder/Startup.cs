@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace VendorOrder
+namespace ToDoList
 {
   public class Startup
   {
-    public Startup(IWebHostEnviroment env)
+    public Startup(IWebHostEnvironment env)
     {
       var builder = new ConfigurationBuilder()
       .SetBasePath(env.ContentRootPath)
-      .AddEnviromentVariables();
+      .AddEnvironmentVariables();
       Configuration = builder.Build();
     }
 
@@ -21,14 +21,14 @@ namespace VendorOrder
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
-    }
+    } 
 
     public void Configure(IApplicationBuilder app)
     {
-      app.UseDeveloperExceptionsPage();
+      app.UseDeveloperExceptionPage();
       app.UseRouting();
 
-      app.UseEndPoints(routes => 
+      app.UseEndpoints(routes => 
       {
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
