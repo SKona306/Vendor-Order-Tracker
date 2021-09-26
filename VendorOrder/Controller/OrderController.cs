@@ -12,5 +12,13 @@ namespace VendorOrder.Controllers
       Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
+
+    [HttpPost("/items/delete")]
+    public ActionResult DeleteAll()
+    {
+      Order.ClearAll();
+      return View();
+    }
+
   }
 }
