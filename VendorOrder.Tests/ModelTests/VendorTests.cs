@@ -21,7 +21,7 @@ namespace VendorOrder.Tests
     }
 
     [TestMethod]
-    public void VendorConstructor_CorrectlyConstructsVendorWithName_Name()
+    public void VendorConstructor_CorrectlyConstructsVendorWithProperties_Name()
     {
       string name = "test name";
       Vendor newVendor = new Vendor(name, "description");
