@@ -96,7 +96,25 @@ namespace VendorOrder.Tests
       Order newOrder = new Order(title, description, price, date);
       int result = newOrder.Id;
       Assert.AreEqual(1, result);
-
     }
+
+    [TestMethod]
+      public void Find_ReturnsCorrectOrder_Order()
+      {
+        string title = "A Title";
+        string description = "This is a test";
+        string date = "May 1st 2021";
+        string price = "23";
+        
+        string title02 = "A Title";
+        string description02 = "This is a test";
+        string date02 = "May 1st 2021";
+        string price02 = "23";
+
+        Order newOrder01 = new Order(title, description, price, date);
+        Order newOrder02 = new Order(title02, description02, price02, date02);
+        Order result = Order.Find(2);
+        Assert.AreEqual(newOrder02, result);
+      }
   }
 }
