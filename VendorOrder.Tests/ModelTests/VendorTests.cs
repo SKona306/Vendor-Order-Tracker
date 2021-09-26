@@ -50,6 +50,14 @@ namespace VendorOrder.Tests
     }
 
     [TestMethod]
+    public void GetAll_ReturnsEmptyList_VendorList()
+    {
+      List<Vendor> newList = new List<Vendor> {};
+      List<Vendor> result = Vendor.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
       string name01 = "test";
