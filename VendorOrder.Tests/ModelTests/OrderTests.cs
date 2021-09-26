@@ -22,15 +22,33 @@ namespace VendorOrder.Tests
       string description = "This is a test";
       string date = "May 1st 2021";
       string price = "23";
-      Order newOrder = new Order(title, description, date, price);
+      Order newOrder = new Order(title, description, price, date);
+
       string resultTitle = newOrder.Title;
       string resultDescription = newOrder.Description;
       string resultDate = newOrder.Date;
       string resultPrice = newOrder.Price;
+
       Assert.AreEqual(title, resultTitle);
       Assert.AreEqual(description, resultDescription);
       Assert.AreEqual(date, resultDate);
       Assert.AreEqual(price, resultPrice);
+    }
+
+    [TestMethod]
+    public void SetDescription_SetDescription_String()
+    {
+      string title = "A Title";
+      string description = "This is a test";
+      string date = "May 1st 2021";
+      string price = "23";
+      Order newOrder = new Order(title, description, price, date);
+
+      string updatedDescription = "10 bread and 30 bagels by thursday";
+      newOrder.Description = updatedDescription;
+      string result = newOrder.Description;
+
+      Assert.AreEqual(updatedDescription, result);
     }
   }
 }
