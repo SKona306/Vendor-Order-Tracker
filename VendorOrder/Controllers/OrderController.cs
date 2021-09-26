@@ -6,21 +6,21 @@ namespace VendorOrder.Controllers
 {
   public class OrderController : Controller
   {
-    [HttpGet("/vendor/{vendorId}/order/new")]
+    [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
 
-    [HttpPost("/order/delete")]
+    [HttpPost("/orders/delete")]
     public ActionResult DeleteAll()
     {
       Order.ClearAll();
       return View();
     }
 
-    [HttpGet("vendor/{vendorId}/order/{orderId}")]
+    [HttpGet("vendors/{vendorId}/orders/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)
     {
       Order order = Order.Find(orderId);
