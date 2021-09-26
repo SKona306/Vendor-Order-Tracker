@@ -11,6 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VendorOrder\VendorOrder.csproj"/>
-  <ItemGroup>
+  </ItemGroup>
 
 </Project>
