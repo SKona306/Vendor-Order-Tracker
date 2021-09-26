@@ -13,7 +13,12 @@ namespace VendorOrder.Models
 
     public Order(string title, string description, string price, string date)
     {
-
+      Title = title;
+      Description = description;
+      Price = price;
+      Date = date;
+      _instances.Add(this);
+      Id = _instances.Count;
     }
 
   }
