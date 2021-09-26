@@ -45,6 +45,8 @@ A C# application for Pierre that allows him to keep track of vendors and orders.
 4. To run project in console enter: `dotnet run`
 5. To exit program press CTRL + c
 
+## Bugs in Application
+* Work in Progress: currently the application can take in new vendors and allows the user to fill out the form but when the user clicks on the same vendor to see the added order an error occurs. 
 ## License 
 
 [MIT](https://choosealicense.com/licenses/mit/)
