@@ -26,8 +26,8 @@ namespace VendorOrder.Controllers
       Order order = Order.Find(orderId);
       Vendor vendor = Vendor.Find(vendorId);
       Dictionary<string, object> model = new Dictionary<string, object> ();
-      model.Add("order", order);
-      model.Add("vendor", vendor);
+      model.Add("orders", order);
+      model.Add("vendors", vendor);
       return View(model);
     }
   }
